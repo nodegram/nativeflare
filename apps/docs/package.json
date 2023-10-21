@@ -1,0 +1,33 @@
+{
+  "name": "nativeflare-docs",
+  "version": "1.0.0",
+  "description": "NativeFlare Documentation",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodegram/nativeflare.git"
+  },
+  "author": "Serge Harb <hi@sergeharb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodegram/nativeflare/issues"
+  },
+  "homepage": "https://github.com/nodegram/nativeflare#readme",
+  "dependencies": {
+    "next": "^13.0.6",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native-web": "^0.19.9",
+    "ui": "*"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10",
+    "typescript": "^4.9.3"
+  }
+}

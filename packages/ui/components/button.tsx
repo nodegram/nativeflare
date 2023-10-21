@@ -1,0 +1,142 @@
+import { useContext, createContext } from 'react';
+import {
+  View,
+  Pressable,
+  PressableProps,
+  ActivityIndicator,
+  Text as NativeText,
+  TextProps as NativeTextProps,
+  ActivityIndicatorProps,
+} from 'react-native';
+import { cva, type VariantProps } from 'class-variance-authority';
+
+import { cn } from '@/lib/utils';
+
+const DEFAULT_SIZE = 'md';
+const DEFAULT_VARIANT = 'default';
+
+const buttonVariants = cva(
+  'flex items-center justify-center rounded-md transition-colors relative',
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary shadow hover:bg-primary/90',
+        destructive: 'bg-destructive shadow-sm hover:bg-destructive/90',
+        outline: 'border border-input bg-transparent shadow-sm hover:bg-accent',
+        secondary: 'bg-secondary shadow-sm hover:bg-secondary/80',
+        ghost: 'hover:bg-accent',
+      },
+      size: {
+        sm: 'h-10 rounded-md px-4',
+        md: 'h-11 px-8 py-2',
+        lg: 'h-12 rounded-md px-10',
+        icon: 'h-9 w-9',
+      },
+    },
+    defaultVariants: {
+      variant: DEFAULT_VARIANT,
+      size: DEFAULT_SIZE,
+    },
+  }
+);
+
+export interface ButtonProps extends PressableProps, VariantProps<typeof buttonVariants> {
+  title?: string;
+  busy?: boolean;
+}
+
+const ButtonContext = createContext<VariantProps<typeof buttonVariants>>({
+  variant: DEFAULT_VARIANT,
+  size: DEFAULT_SIZE,
+});
+
+const Button = ({ className, variant, size, title, busy, children, ...props }: ButtonProps) => {
+  if (busy) {
+    props.disabled = true;
+  }
+
+  return (
+    <ButtonContext.Provider value={{ variant, size }}>
+      <Pressable className={cn(buttonVariants({ variant, size, className }))} {...props}>
+        <View className={cn(busy && 'opacity-0')}>
+          <>
+            {title ? (
+              <ButtonText variant={variant} size={size}>
+                {title}
+              </ButtonText>
+            ) : (
+              children
+            )}
+          </>
+        </View>
+        {busy && <ButtonLoader size="small" />}
+      </Pressable>
+    </ButtonContext.Provider>
+  );
+};
+
+const buttonTextVariants = cva(
+  'text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  {
+    variants: {
+      variant: {
+        default: 'text-primary-foreground web:[&>div>svg>circle]:!stroke-primary-foreground',
+        destructive:
+          'text-destructive-foreground web:[&>div>svg>circle]:!stroke-destructive-foreground',
+        outline: 'text-foreground web:[&>div>svg>circle]:!stroke-foreground',
+        secondary: 'text-secondary-foreground web:[&>div>svg>circle]:!stroke-secondary-foreground',
+        ghost: 'text-foreground web:[&>div>svg>circle]:!stroke-foreground',
+        link: 'text-primary hover:underline web:[&>div>svg>circle]:!stroke-primary',
+      },
+      size: {
+        sm: 'text-base',
+        md: 'pt-0.5 web:pt-0',
+        lg: 'pt-0.5 web:pt-0',
+        icon: '',
+      },
+    },
+    defaultVariants: {
+      variant: DEFAULT_VARIANT,
+      size: DEFAULT_SIZE,
+    },
+  }
+);
+
+interface ButtonTextProps extends NativeTextProps, VariantProps<typeof buttonTextVariants> {}
+
+const ButtonText = ({ className, ...props }: ButtonTextProps) => {
+  const buttonContext = useContext(ButtonContext);
+
+  if (!buttonContext) {
+    throw new Error('ButtonText must be used within a Button');
+  }
+
+  const { variant, size } = buttonContext;
+  return <NativeText className={cn(buttonTextVariants({ variant, size, className }))} {...props} />;
+};
+
+interface ButtonLoaderProps
+  extends Omit<ActivityIndicatorProps, 'size'>,
+    VariantProps<typeof buttonTextVariants> {}
+
+const ButtonLoader = ({
+  className,
+  ...props
+}: Omit<ButtonLoaderProps, 'size'> & {
+  size?: ActivityIndicatorProps['size'];
+}) => {
+  const buttonContext = useContext(ButtonContext);
+
+  if (!buttonContext) {
+    throw new Error('ButtonLoader must be used within a Button');
+  }
+
+  const { variant } = buttonContext;
+  return (
+    <View className="absolute native:top-[-9px]">
+      <ActivityIndicator className={cn(buttonTextVariants({ variant, className }))} {...props} />
+    </View>
+  );
+};
+
+export { Button, ButtonText, ButtonLoader, buttonVariants };
