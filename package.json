@@ -5,9 +5,10 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "run:docs": "turbo run dev --filter=docs",
-    "run:docusaurus": "turbo run dev --filter=docusaurus",
-    "run:expo-demo": "turbo run dev --filter=expo-demo"
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && rm package-lock.json && npm i",
+    "docs": "turbo run dev --filter=docs",
+    "expo-demo": "EXPO_USE_METRO_WORKSPACE_ROOT=1 turbo run dev --filter=expo-demo",
+    "cool-app": "EXPO_USE_METRO_WORKSPACE_ROOT=1 turbo run dev --filter=cool-app"
   },
   "devDependencies": {
     "eslint": "^8.48.0",

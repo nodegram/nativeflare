@@ -2,14 +2,13 @@ import { useContext, createContext } from 'react';
 import {
   View,
   Pressable,
-  PressableProps,
   ActivityIndicator,
   Text as NativeText,
-  TextProps as NativeTextProps,
-  ActivityIndicatorProps,
+  type PressableProps,
+  type TextProps as NativeTextProps,
+  type ActivityIndicatorProps,
 } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '../lib/utils';
 
 const DEFAULT_SIZE = 'md';
@@ -50,7 +49,15 @@ const ButtonContext = createContext<VariantProps<typeof buttonVariants>>({
   size: DEFAULT_SIZE,
 });
 
-const Button = ({ className, variant, size, title, busy, children, ...props }: ButtonProps) => {
+function Button({
+  className,
+  variant,
+  size,
+  title,
+  busy,
+  children,
+  ...props
+}: ButtonProps): JSX.Element {
   if (busy) {
     props.disabled = true;
   }
@@ -61,7 +68,7 @@ const Button = ({ className, variant, size, title, busy, children, ...props }: B
         <View className={cn(busy && 'opacity-0')}>
           <>
             {title ? (
-              <ButtonText variant={variant} size={size}>
+              <ButtonText size={size} variant={variant}>
                 {title}
               </ButtonText>
             ) : (
@@ -69,11 +76,11 @@ const Button = ({ className, variant, size, title, busy, children, ...props }: B
             )}
           </>
         </View>
-        {busy && <ButtonLoader size="small" />}
+        {busy ? <ButtonLoader size="small" /> : null}
       </Pressable>
     </ButtonContext.Provider>
   );
-};
+}
 
 const buttonTextVariants = cva(
   'text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
@@ -104,32 +111,24 @@ const buttonTextVariants = cva(
 
 interface ButtonTextProps extends NativeTextProps, VariantProps<typeof buttonTextVariants> {}
 
-const ButtonText = ({ className, ...props }: ButtonTextProps) => {
+function ButtonText({ className, ...props }: ButtonTextProps): JSX.Element {
   const buttonContext = useContext(ButtonContext);
-
-  if (!buttonContext) {
-    throw new Error('ButtonText must be used within a Button');
-  }
 
   const { variant, size } = buttonContext;
   return <NativeText className={cn(buttonTextVariants({ variant, size, className }))} {...props} />;
-};
+}
 
 interface ButtonLoaderProps
   extends Omit<ActivityIndicatorProps, 'size'>,
     VariantProps<typeof buttonTextVariants> {}
 
-const ButtonLoader = ({
+function ButtonLoader({
   className,
   ...props
 }: Omit<ButtonLoaderProps, 'size'> & {
   size?: ActivityIndicatorProps['size'];
-}) => {
+}): JSX.Element {
   const buttonContext = useContext(ButtonContext);
-
-  if (!buttonContext) {
-    throw new Error('ButtonLoader must be used within a Button');
-  }
 
   const { variant } = buttonContext;
   return (
@@ -137,6 +136,6 @@ const ButtonLoader = ({
       <ActivityIndicator className={cn(buttonTextVariants({ variant, className }))} {...props} />
     </View>
   );
-};
+}
 
 export { Button, ButtonText, ButtonLoader, buttonVariants };

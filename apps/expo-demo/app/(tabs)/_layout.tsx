@@ -21,7 +21,8 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -47,6 +48,13 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="buttons"
+        options={{
+          title: 'Buttons',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

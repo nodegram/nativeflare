@@ -1,6 +1,6 @@
 {
   "name": "expo-demo",
-  "main": "expo-router/entry",
+  "main": "index",
   "version": "1.0.0",
   "scripts": {
     "dev": "expo start",
@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "eas-build-post-install": "tailwindcss -i ./global.css -o ./node_modules/.cache/nativewind/global.css.native.css"
   },
   "jest": {
     "preset": "jest-expo"
@@ -20,6 +21,7 @@
     "expo-font": "~11.4.0",
     "expo-linking": "~5.0.2",
     "expo-router": "^2.0.0",
+    "expo-screen-orientation": "~6.0.5",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
     "expo-system-ui": "~2.4.0",
