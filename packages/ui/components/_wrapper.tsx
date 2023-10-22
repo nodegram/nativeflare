@@ -1,8 +1,8 @@
 import { type ReactNode, createContext } from 'react';
 import { StyleSheet, View, useColorScheme } from 'react-native';
 import { vars } from 'nativewind';
-import { Colors } from '@/config/colors';
-import { getThemeSettings } from '@/lib/utils';
+import { Colors } from '../config/colors';
+import { getThemeSettings } from '../lib/utils';
 
 export const ThemeColorsContext = createContext(Colors.light);
 

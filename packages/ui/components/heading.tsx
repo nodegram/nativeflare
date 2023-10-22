@@ -1,7 +1,7 @@
 import { Text as NativeText, TextProps } from 'react-native';
 import { VariantProps, cva } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 const headingVariants = cva('font-bold', {
   variants: {

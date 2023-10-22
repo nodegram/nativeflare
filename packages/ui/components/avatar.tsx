@@ -1,7 +1,7 @@
 import { Image, ImageProps, View, ViewProps } from 'react-native';
 import { VariantProps, cva } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 const avatarVariants = cva('relative flex shrink-0 overflow-hidden rounded-full', {
   variants: {

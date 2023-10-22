@@ -1,6 +1,6 @@
 import { TextProps, View, ViewProps } from 'react-native';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 import { Text } from './text';
 import { Heading } from './heading';

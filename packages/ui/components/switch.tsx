@@ -1,6 +1,6 @@
 import { Switch as NativeSwitch, SwitchProps as NativeSwitchProps, View } from 'react-native';
 
-import { useThemeColors } from '@/hooks/useThemeColors';
+import { useThemeColors } from '../hooks/useThemeColors';
 
 export const Switch = ({ value, className, ...props }: NativeSwitchProps) => {
   const colors = useThemeColors();

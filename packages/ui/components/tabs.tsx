@@ -1,7 +1,7 @@
 import { View, ViewProps, Pressable } from 'react-native';
 import React, { useState, createContext, useContext } from 'react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils';
 
 import { Text, TextProps } from './text';
 
