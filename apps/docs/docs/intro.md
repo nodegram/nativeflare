@@ -2,46 +2,16 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Re-usable components built using Radix UI and Tailwind CSS.
 
-## Getting Started
+This is **NOT** a component library. It's a collection of re-usable components that you can copy and paste into your apps.
 
-Get started by **creating a new site**.
+**What do you mean by not a component library?**
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+I mean you do not install it as a dependency. It is not available or distributed via npm.
 
-### What you'll need
+Pick the components you need. Copy and paste the code into your project and customize to your needs. The code is yours.
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+_Use this as a reference to build your own component libraries._

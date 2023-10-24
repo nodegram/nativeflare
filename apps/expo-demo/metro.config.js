@@ -28,6 +28,6 @@ config.resolver.sourceExts = process.env.RN_SRC_EXT
 const { withNativeWind } = require('nativewind/metro');
 module.exports = withNativeWind(config, {
   input: 'global.css',
-  inlineRem: 16,
+  inlineRem: 14,
   projectRoot,
 });

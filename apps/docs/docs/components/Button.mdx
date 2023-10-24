@@ -1,0 +1,138 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <iframe
+      src="http://localhost:8081/ui/button?title=Button"
+      style={{ borderRadius: 8 }}
+      height="300"
+      width="100%"
+    />
+  </TabItem>
+  <TabItem value="code" label="Code">
+    ```jsx
+    import { Button } from "@/components/ui/button";
+
+    export function ButtonDemo() {
+      return <Button title="Button" />
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Installation
+
+<Tabs>
+  <TabItem value="cli" label="CLI" default>
+    ```bash npx nativeflare-ui add button ```
+  </TabItem>
+  <TabItem value="manual" label="Manual">
+    ```jsx // button.js ```
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```jsx
+import { Button } from '@/components/ui/button';
+```
+
+```jsx
+<Button title="Button" variant="outline" />
+```
+
+## Examples
+
+### Primary
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <iframe
+      src="http://localhost:8081/ui/button?title=primary"
+      style={{ borderRadius: 8 }}
+      height="300"
+      width="100%"
+    />
+  </TabItem>
+  <TabItem value="code" label="Code">
+    ```jsx
+    import { Button } from "@/components/ui/button";
+
+    export function ButtonPrimary() {
+      return <Button title="Primary" />
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Secondary
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <iframe
+      src="http://localhost:8081/ui/button?title=secondary&variant=secondary"
+      style={{ borderRadius: 8 }}
+      height="300"
+      width="100%"
+    />
+  </TabItem>
+  <TabItem value="code" label="Code">
+    ```jsx
+    import { Button } from "@/components/ui/button";
+
+    export function ButtonSecondary() {
+      return <Button title="Secondary" variant="secondary" />
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Destructive
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <iframe
+      src="http://localhost:8081/ui/button?title=destructive&variant=destructive"
+      style={{ borderRadius: 8 }}
+      height="300"
+      width="100%"
+    />
+  </TabItem>
+  <TabItem value="code" label="Code">
+    ```jsx
+    import { Button } from "@/components/ui/button";
+
+    export function ButtonDestructive() {
+      return <Button title="Destructive" variant="destructive" />
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Outline
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <iframe
+      src="http://localhost:8081/ui/button?title=outline&variant=outline"
+      style={{ borderRadius: 8 }}
+      height="300"
+      width="100%"
+    />
+  </TabItem>
+  <TabItem value="code" label="Code">
+    ```jsx
+    import { Button } from "@/components/ui/button";
+
+    export function ButtonOutline() {
+      return <Button title="Outline" variant="outline" />
+    }
+    ```
+
+  </TabItem>
+</Tabs>
