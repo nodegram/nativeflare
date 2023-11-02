@@ -17,6 +17,7 @@ export const ExpoFrame = (props: Props) => {
       style={{ borderRadius: 8 }}
       height={props.height}
       width={props.width}
+      loading="lazy"
     />
   );
 };
