@@ -1,6 +1,7 @@
-import { Image, ImageProps, View, ViewProps } from 'react-native';
-import { VariantProps, cva } from 'class-variance-authority';
-
+import type { ImageProps, ViewProps } from 'react-native';
+import { Image, View } from 'react-native';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { cn } from '../lib/utils';
 
 const avatarVariants = cva('relative flex shrink-0 overflow-hidden rounded-full', {
@@ -20,19 +21,21 @@ const avatarVariants = cva('relative flex shrink-0 overflow-hidden rounded-full'
 
 export interface AvatarProps extends ViewProps, VariantProps<typeof avatarVariants> {}
 
-const Avatar = ({ className, size, ...props }: AvatarProps) => (
-  <View className={cn(avatarVariants({ size, className }))} {...props} />
-);
+function Avatar({ className, size, ...props }: AvatarProps): JSX.Element {
+  return <View className={cn(avatarVariants({ size, className }))} {...props} />;
+}
 
-const AvatarImage = ({ className, ...props }: ImageProps) => (
-  <Image className={cn('aspect-square h-full w-full', className)} {...props} />
-);
+function AvatarImage({ className, ...props }: ImageProps): JSX.Element {
+  return <Image className={cn('aspect-square h-full w-full', className)} {...props} />;
+}
 
-const AvatarFallback = ({ className, ...props }: ViewProps) => (
-  <View
-    className={cn('flex h-full w-full items-center justify-center bg-muted w-', className)}
-    {...props}
-  />
-);
+function AvatarFallback({ className, ...props }: ViewProps): JSX.Element {
+  return (
+    <View
+      className={cn('flex h-full w-full items-center justify-center bg-muted w-', className)}
+      {...props}
+    />
+  );
+}
 
 export { Avatar, AvatarImage, AvatarFallback };

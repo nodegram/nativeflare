@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeColorsContext } from '../components/_wrapper';
 
-export const useThemeColors = () => {
+export const useThemeColors = (): Record<string, string> => {
   const themeColors = useContext(ThemeColorsContext);
 
   if (!themeColors) {

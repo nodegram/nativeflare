@@ -1,10 +1,11 @@
-import { View, ViewProps } from 'react-native';
+import { View } from 'react-native';
+import type { ViewProps } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '../lib/utils';
-
-import { Text, TextProps } from './text';
-import { Heading, HeadingProps } from './heading';
+import type { HeadingProps } from './heading';
+import type { TextProps } from './text';
+import { Heading } from './heading';
+import { Text } from './text';
 
 const alertVariants = cva(
   'relative w-full rounded-lg border border-border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',
@@ -24,20 +25,22 @@ const alertVariants = cva(
 
 export interface AlertProps extends ViewProps, VariantProps<typeof alertVariants> {}
 
-const Alert = ({ className, variant, ...props }: AlertProps) => (
-  <View role="alert" className={cn(alertVariants({ variant }), className)} {...props} />
-);
+function Alert({ className, variant, ...props }: AlertProps): JSX.Element {
+  return <View className={cn(alertVariants({ variant }), className)} role="alert" {...props} />;
+}
 
-const AlertTitle = ({ className, ...props }: HeadingProps) => (
-  <Heading
-    variant="h5"
-    className={cn('mb-1 font-medium leading-none tracking-tight', className)}
-    {...props}
-  />
-);
+function AlertTitle({ className, ...props }: HeadingProps): JSX.Element {
+  return (
+    <Heading
+      className={cn('mb-1 font-medium leading-none tracking-tight', className)}
+      variant="h5"
+      {...props}
+    />
+  );
+}
 
-const AlertDescription = ({ className, ...props }: TextProps) => (
-  <Text size="sm" className={className} {...props} />
-);
+function AlertDescription({ className, ...props }: TextProps): JSX.Element {
+  return <Text className={className} size="sm" {...props} />;
+}
 
 export { Alert, AlertTitle, AlertDescription };

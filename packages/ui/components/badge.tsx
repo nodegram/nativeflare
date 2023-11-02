@@ -1,8 +1,7 @@
-import { View, ViewProps } from 'react-native';
+import type { ViewProps } from 'react-native';
+import { View } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '../lib/utils';
-
 import { Text } from './text';
 
 const badgeVariants = cva(
@@ -38,14 +37,14 @@ const textVariants = cva('font-semibold', {
 
 export interface BadgeProps extends ViewProps, VariantProps<typeof badgeVariants> {}
 
-const Badge = ({ className, variant, children, ...props }: BadgeProps) => {
+function Badge({ className, variant, children, ...props }: BadgeProps): JSX.Element {
   return (
     <View className={cn(badgeVariants({ variant }), className)} {...props}>
-      <Text size="xs" className={cn(textVariants({ variant }))}>
+      <Text className={cn(textVariants({ variant }))} size="xs">
         {children}
       </Text>
     </View>
   );
-};
+}
 
 export { Badge, badgeVariants };

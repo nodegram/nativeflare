@@ -1,6 +1,6 @@
-import { Text as NativeText, TextProps as NativeTextProps } from 'react-native';
+import type { TextProps as NativeTextProps } from 'react-native';
+import { Text as NativeText } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '../lib/utils';
 
 const textVariants = cva('leading-none', {
@@ -41,10 +41,17 @@ const textVariants = cva('leading-none', {
 
 export interface TextProps extends NativeTextProps, VariantProps<typeof textVariants> {}
 
-export const Text = ({ children, className = '', size, variant, weight, ...props }: TextProps) => {
+export function Text({
+  children,
+  className = '',
+  size,
+  variant,
+  weight,
+  ...props
+}: TextProps): JSX.Element {
   return (
     <NativeText className={cn(textVariants({ size, variant, weight, className }))} {...props}>
       {children}
     </NativeText>
   );
-};
+}

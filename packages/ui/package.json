@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
-    "clx": "^1.0.0",
+    "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-native": "^0.72.6",
     "tailwind-merge": "^1.14.0"

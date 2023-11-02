@@ -1,6 +1,7 @@
-import { Text as NativeText, TextProps } from 'react-native';
-import { VariantProps, cva } from 'class-variance-authority';
-
+import type { TextProps } from 'react-native';
+import { Text as NativeText } from 'react-native';
+import { cva } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 import { cn } from '../lib/utils';
 
 const headingVariants = cva('font-bold', {
@@ -25,21 +26,18 @@ const headingVariants = cva('font-bold', {
   },
 });
 
-export interface HeadingProps extends TextProps, VariantProps<typeof headingVariants> {
-  centered?: boolean;
-}
+export interface HeadingProps extends TextProps, VariantProps<typeof headingVariants> {}
 
-export const Heading = ({
+export function Heading({
   className = '',
   children,
-  centered,
   variant,
   accent,
   ...props
-}: HeadingProps) => {
+}: HeadingProps): JSX.Element {
   return (
     <NativeText className={cn(headingVariants({ variant, accent, className }))} {...props}>
       {children}
     </NativeText>
   );
-};
+}

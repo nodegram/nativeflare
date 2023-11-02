@@ -4,7 +4,7 @@ import { vars } from 'nativewind';
 import { Colors } from '../config/colors';
 import { getThemeSettings } from '../lib/utils';
 
-export const ThemeColorsContext = createContext(Colors.light);
+export const ThemeColorsContext = createContext<Record<string, string> | undefined>(Colors.light);
 
 export function UIWrapper({ children }: { children: ReactNode }): JSX.Element {
   const colorScheme = useColorScheme();
