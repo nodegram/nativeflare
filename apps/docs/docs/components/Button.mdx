@@ -1,16 +1,13 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { ExpoFrame } from '@site/src/components/ExpoFrame';
 
 <Tabs>
   <TabItem value="preview" label="Preview" default>
-    <iframe
-      src="http://localhost:8081/ui/button?title=Button"
-      style={{ borderRadius: 8 }}
-      height="300"
-      width="100%"
-    />
+    <ExpoFrame url="/ui/button?title=Button" height="300" width="100%" />
   </TabItem>
   <TabItem value="code" label="Code">
+
     ```jsx
     import { Button } from "@/components/ui/button";
 
@@ -26,10 +23,18 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="cli" label="CLI" default>
-    ```bash npx nativeflare-ui add button ```
+
+    ```bash
+    npx nativeflare-ui add button
+    ```
+
   </TabItem>
   <TabItem value="manual" label="Manual">
-    ```jsx // button.js ```
+
+    ```jsx
+    // button.js
+    ```
+
   </TabItem>
 </Tabs>
 
@@ -49,14 +54,13 @@ import { Button } from '@/components/ui/button';
 
 <Tabs>
   <TabItem value="preview" label="Preview" default>
-    <iframe
-      src="http://localhost:8081/ui/button?title=primary"
-      style={{ borderRadius: 8 }}
+    <ExpoFrame url="/ui/button?title=primary"
       height="300"
       width="100%"
     />
   </TabItem>
   <TabItem value="code" label="Code">
+
     ```jsx
     import { Button } from "@/components/ui/button";
 
@@ -72,14 +76,13 @@ import { Button } from '@/components/ui/button';
 
 <Tabs>
   <TabItem value="preview" label="Preview" default>
-    <iframe
-      src="http://localhost:8081/ui/button?title=secondary&variant=secondary"
-      style={{ borderRadius: 8 }}
+    <ExpoFrame url="/ui/button?title=secondary&variant=secondary"
       height="300"
       width="100%"
     />
   </TabItem>
   <TabItem value="code" label="Code">
+
     ```jsx
     import { Button } from "@/components/ui/button";
 
@@ -95,14 +98,13 @@ import { Button } from '@/components/ui/button';
 
 <Tabs>
   <TabItem value="preview" label="Preview" default>
-    <iframe
-      src="http://localhost:8081/ui/button?title=destructive&variant=destructive"
-      style={{ borderRadius: 8 }}
+    <ExpoFrame url="/ui/button?title=destructive&variant=destructive"
       height="300"
       width="100%"
     />
   </TabItem>
   <TabItem value="code" label="Code">
+
     ```jsx
     import { Button } from "@/components/ui/button";
 
@@ -118,14 +120,13 @@ import { Button } from '@/components/ui/button';
 
 <Tabs>
   <TabItem value="preview" label="Preview" default>
-    <iframe
-      src="http://localhost:8081/ui/button?title=outline&variant=outline"
-      style={{ borderRadius: 8 }}
+    <ExpoFrame url="/ui/button?title=outline&variant=outline"
       height="300"
       width="100%"
     />
   </TabItem>
   <TabItem value="code" label="Code">
+
     ```jsx
     import { Button } from "@/components/ui/button";
 
