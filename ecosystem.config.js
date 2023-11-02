@@ -12,7 +12,6 @@ module.exports = {
       script: 'cd ./apps/expo-demo && yarn serve -l 9008',
       env: {
         NODE_ENV: 'production',
-        EXPO_PREVIEW_URL: 'https://expo-demo.nativeflare.dev',
       },
     },
   ],
