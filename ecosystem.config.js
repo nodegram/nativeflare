@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'docs',
-      script: 'cd ./apps/docs && yarn start --port 9009',
+      script: 'cd ./apps/docs && yarn serve --port 9009',
       env: {
         NODE_ENV: 'production',
       },
