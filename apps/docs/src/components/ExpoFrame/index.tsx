@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BASE_URL = process.env.EXPO_PREVIEW_URL;
 
 type Props = {
