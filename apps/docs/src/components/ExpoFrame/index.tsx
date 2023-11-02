@@ -12,13 +12,11 @@ export const ExpoFrame = (props: Props) => {
   }
 
   return (
-    <div style={{ borderRadius: 8, backgroundColor: '#282a36' }}>
-      <iframe
-        allowTransparency
-        src={`${BASE_URL}${props.url}`}
-        height={props.height}
-        width={props.width}
-      />
-    </div>
+    <iframe
+      src={`${BASE_URL}${props.url}`}
+      style={{ borderRadius: 8 }}
+      height={props.height}
+      width={props.width}
+    />
   );
 };
