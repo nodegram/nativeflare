@@ -14,7 +14,7 @@ export const ExpoFrame = (props: Props) => {
   return (
     <iframe
       src={`${BASE_URL}${props.url}`}
-      style={{ borderRadius: 8 }}
+      style={{ borderRadius: 8, border: '1px solid #27272a' }}
       height={props.height}
       width={props.width}
       loading="lazy"

@@ -29,10 +29,19 @@ function Alert({ className, variant, ...props }: AlertProps): JSX.Element {
   return <View className={cn(alertVariants({ variant }), className)} role="alert" {...props} />;
 }
 
+function AlertIcon({ className, ...props }: ViewProps): JSX.Element {
+  return (
+    <View
+      className={cn('absolute left-4 top-4 w-4 h-4 flex flex-row items-end', className)}
+      {...props}
+    />
+  );
+}
+
 function AlertTitle({ className, ...props }: HeadingProps): JSX.Element {
   return (
     <Heading
-      className={cn('mb-1 font-medium leading-none tracking-tight', className)}
+      className={cn('pl-7 mb-1 font-medium leading-none tracking-tight', className)}
       variant="h5"
       {...props}
     />
@@ -40,7 +49,7 @@ function AlertTitle({ className, ...props }: HeadingProps): JSX.Element {
 }
 
 function AlertDescription({ className, ...props }: TextProps): JSX.Element {
-  return <Text className={className} size="sm" {...props} />;
+  return <Text className={cn('pl-7', className)} size="sm" {...props} />;
 }
 
-export { Alert, AlertTitle, AlertDescription };
+export { Alert, AlertIcon, AlertTitle, AlertDescription };

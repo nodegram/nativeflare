@@ -9,19 +9,14 @@ import { ExpoFrame } from '@site/src/components/ExpoFrame';
   <TabItem value="code" label="Code">
 
     ```jsx
-    import { View } from 'react-native';
-    import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-
-    const Terminal = ({ className }) => (
-      <View className={className}>
-        <FontAwesome5 name="terminal" size={16} />
-      </View>
-    );
+    import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
     export function AlertDemo() {
       return (
         <Alert>
-          <Terminal className="h-4 w-4" />
+          <AlertIcon>
+            <FontAwesome5 name="terminal" color="white" />
+          </AlertIcon>
           <AlertTitle>Heads up!</AlertTitle>
           <AlertDescription>You can add components to your app using the cli.</AlertDescription>
         </Alert>
@@ -54,19 +49,14 @@ import { ExpoFrame } from '@site/src/components/ExpoFrame';
 ## Usage
 
 ```jsx
-import { View } from 'react-native';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-
-const Terminal = ({ className }) => (
-  <View className={className}>
-    <FontAwesome5 name="terminal" size={16} />
-  </View>
-);
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@/components/ui/alert';
 ```
 
 ```jsx
 <Alert>
-  <Terminal className="h-4 w-4" />
+  <AlertIcon>
+    <FontAwesome5 name="terminal" color="white" />
+  </AlertIcon>
   <AlertTitle>Heads up!</AlertTitle>
   <AlertDescription>You can add components to your app using the cli.</AlertDescription>
 </Alert>
