@@ -1,0 +1,73 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { ExpoFrame } from '@site/src/components/ExpoFrame';
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <ExpoFrame url="/ui/alert" height="300" width="100%" />
+  </TabItem>
+  <TabItem value="code" label="Code">
+
+    ```jsx
+    import { View } from 'react-native';
+    import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+
+    const Terminal = ({ className }) => (
+      <View className={className}>
+        <FontAwesome5 name="terminal" size={16} />
+      </View>
+    );
+
+    export function AlertDemo() {
+      return (
+        <Alert>
+          <Terminal className="h-4 w-4" />
+          <AlertTitle>Heads up!</AlertTitle>
+          <AlertDescription>You can add components to your app using the cli.</AlertDescription>
+        </Alert>
+      )
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Installation
+
+<Tabs>
+  <TabItem value="cli" label="CLI" default>
+
+    ```bash
+    npx nativeflare-ui add alert
+    ```
+
+  </TabItem>
+  <TabItem value="manual" label="Manual">
+
+    ```jsx
+    // alert.js
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```jsx
+import { View } from 'react-native';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+
+const Terminal = ({ className }) => (
+  <View className={className}>
+    <FontAwesome5 name="terminal" size={16} />
+  </View>
+);
+```
+
+```jsx
+<Alert>
+  <Terminal className="h-4 w-4" />
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>You can add components to your app using the cli.</AlertDescription>
+</Alert>
+```

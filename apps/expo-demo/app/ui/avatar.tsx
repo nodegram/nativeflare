@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Avatar, AvatarFallback, AvatarImage } from 'ui';
 import type { AvatarProps } from 'ui';
 
-const ButtonScreen = () => {
+const AvatarScreen = () => {
   const { size } = useLocalSearchParams();
   const buttonSize = (size ? `${size}` : 'md') as AvatarProps['size'];
 
@@ -17,4 +17,4 @@ const ButtonScreen = () => {
   );
 };
 
-export default ButtonScreen;
+export default AvatarScreen;
