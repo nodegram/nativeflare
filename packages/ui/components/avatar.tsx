@@ -25,8 +25,23 @@ function Avatar({ className, size, ...props }: AvatarProps): JSX.Element {
   return <View className={cn(avatarVariants({ size, className }))} {...props} />;
 }
 
-function AvatarImage({ className, ...props }: ImageProps): JSX.Element {
-  return <Image className={cn('aspect-square h-full w-full', className)} {...props} />;
+type AvatarImageProps = Omit<ImageProps, 'source'> & {
+  source?: ImageProps['source'];
+  src?: string;
+};
+
+function AvatarImage({ className, source, src, ...props }: AvatarImageProps): JSX.Element | null {
+  if (!source && !src) {
+    return null;
+  }
+
+  return (
+    <Image
+      className={cn('aspect-square h-full w-full', className)}
+      source={source ? source : { uri: src }}
+      {...props}
+    />
+  );
 }
 
 function AvatarFallback({ className, ...props }: ViewProps): JSX.Element {

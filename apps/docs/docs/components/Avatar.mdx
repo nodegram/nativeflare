@@ -1,0 +1,57 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { ExpoFrame } from '@site/src/components/ExpoFrame';
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <ExpoFrame url="/ui/avatar" height="300" width="100%" />
+  </TabItem>
+  <TabItem value="code" label="Code">
+
+    ```jsx
+    import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+    export function ButtonAvatar() {
+      return (
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+      )
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Installation
+
+<Tabs>
+  <TabItem value="cli" label="CLI" default>
+
+    ```bash
+    npx nativeflare-ui add avatar
+    ```
+
+  </TabItem>
+  <TabItem value="manual" label="Manual">
+
+    ```jsx
+    // avatar.js
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```jsx
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+```
+
+```jsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```

@@ -55,6 +55,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="ui/button" options={{ headerShown: false }} />
+        <Stack.Screen name="ui/avatar" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
