@@ -47,7 +47,7 @@ function AvatarImage({ className, source, src, ...props }: AvatarImageProps): JS
 function AvatarFallback({ className, ...props }: ViewProps): JSX.Element {
   return (
     <View
-      className={cn('flex h-full w-full items-center justify-center bg-muted w-', className)}
+      className={cn('flex h-full w-full items-center justify-center bg-muted', className)}
       {...props}
     />
   );
