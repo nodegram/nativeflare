@@ -7,7 +7,7 @@ const AlertScreen = () => {
     <View className="bg-background flex flex-col flex-1 items-center justify-center p-10">
       <Alert className="max-w-lg mx-auto">
         <AlertIcon>
-          <FontAwesome5 name="terminal" color="white" />
+          <FontAwesome5 className="text-foreground" name="terminal" />
         </AlertIcon>
         <AlertTitle>Heads up!</AlertTitle>
         <AlertDescription>You can add components to your app using the cli.</AlertDescription>

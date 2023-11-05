@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import type { ViewProps } from 'react-native';
-import { cva, type VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { cn } from '../lib/utils';
 import type { HeadingProps } from './heading';
 import type { TextProps } from './text';
