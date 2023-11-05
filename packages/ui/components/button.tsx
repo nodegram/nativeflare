@@ -4,7 +4,7 @@ import {
   Pressable,
   ActivityIndicator,
   Text as NativeText,
-  type PressableProps,
+  type ViewProps,
   type TextProps as NativeTextProps,
   type ActivityIndicatorProps,
 } from 'react-native';
@@ -40,7 +40,8 @@ const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps extends PressableProps, VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends ViewProps, VariantProps<typeof buttonVariants> {
+  disabled?: boolean;
   title?: string;
   busy?: boolean;
 }
@@ -59,6 +60,8 @@ function Button({
   children,
   ...props
 }: ButtonProps): JSX.Element {
+  const isTextOnlyButton = title || typeof children === 'string';
+
   if (busy) {
     props.disabled = true;
   }
@@ -67,15 +70,13 @@ function Button({
     <ButtonContext.Provider value={{ variant, size }}>
       <Pressable className={cn(buttonVariants({ variant, size, className }))} {...props}>
         <View className={cn(busy && 'opacity-0')}>
-          <>
-            {title ? (
-              <ButtonText size={size} variant={variant}>
-                {title}
-              </ButtonText>
-            ) : (
-              children
-            )}
-          </>
+          {isTextOnlyButton ? (
+            <ButtonText size={size} variant={variant}>
+              {title || children}
+            </ButtonText>
+          ) : (
+            children
+          )}
         </View>
         {busy ? <ButtonLoader size="small" /> : null}
       </Pressable>
@@ -114,7 +115,6 @@ interface ButtonTextProps extends NativeTextProps, VariantProps<typeof buttonTex
 
 function ButtonText({ className, ...props }: ButtonTextProps): JSX.Element {
   const buttonContext = useContext(ButtonContext);
-
   const { variant, size } = buttonContext;
   return <NativeText className={cn(buttonTextVariants({ variant, size, className }))} {...props} />;
 }
