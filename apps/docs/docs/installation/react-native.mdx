@@ -1,0 +1,47 @@
+---
+title: React Native
+---
+
+# React Native - Installation
+
+If you're using Bare React Native setup for your project, integrating our component collection is a breeze. Follow these steps to get started:
+
+1. **Create or Open Your React Native Project**
+
+Ensure you have an existing React Native project, or create a new one ([link](https://reactnative.dev/docs/environment-setup)) if you haven't already.
+
+2. **Install NativeWind v4**
+
+Follow the [installation guide](https://www.nativewind.dev/v4/getting-started/react-native) to install NativeWind in your project.
+
+3. **Metro Config**
+
+To support CommonJS (cjs) and ES modules (mjs) libraries, add the following code snippet to your `metro.config.js`:
+
+```javascript
+// ...
+config.resolver.sourceExts = process.env.RN_SRC_EXT
+  ? [...process.env.RN_SRC_EXT.split(',').concat(config.resolver.sourceExts), 'cjs', 'mjs']
+  : [...config.resolver.sourceExts, 'cjs', 'mjs'];
+
+// ...
+module.exports = config;
+```
+
+For a working example feel free to check out our [Metro Config](https://github.com/nodegram/nativeflare/blob/751b69ef12a45ba553002d2954519c8cf1106669/apps/expo-demo/metro.config.js#L24-L26).
+
+4. **Component Collection Dependencies**
+
+Install the additional packages for variants management:
+
+```bash
+npm install class-variance-authority clsx tailwind-merge
+```
+
+5. **Integrate Our Component Collection**
+
+Now that you've prepared your Expo project, you can easily copy and paste the components from our collection into your app. Customize them as needed to match your project's requirements.
+Start Building Awesome Apps!
+With our collection at your fingertips, you're all set to create incredible, customized apps using the components that suit your project.
+
+By following these installation guides, you'll be on your way to enhancing your Expo project with our versatile and reusable component collection. Happy coding! 🚀

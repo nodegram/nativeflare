@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'NativeFlare Docs',
-  tagline: 'NativeFlare Documentation',
+  tagline: 'Documentation for NativeFlare',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -39,15 +39,13 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl: 'https://github.com/nodegram/nativeflare',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl: 'https://github.com/nodegram/nativeflare',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -68,11 +66,11 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'documentationSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/docs/components/button', label: 'Components', position: 'left' },
         {
           href: 'https://github.com/nodegram/nativeflare',
           label: 'GitHub',
@@ -87,8 +85,16 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: '/docs/introduction',
+            },
+            {
+              label: 'Getting Started',
+              to: '/docs/getting-started',
+            },
+            {
+              label: 'Components',
+              to: '/docs/components/button',
             },
           ],
         },
@@ -97,15 +103,11 @@ const config: Config = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/questions/tagged/nativeflare',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://discordapp.com/invite/nativeflare',
             },
           ],
         },
@@ -113,12 +115,12 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'GitHub',
+              href: 'https://github.com/nodegram/nativeflare',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: "Author's Twitter",
+              href: 'https://twitter.com/surgeharb',
             },
           ],
         },
