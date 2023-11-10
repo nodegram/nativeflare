@@ -57,6 +57,8 @@ function RootLayoutNav() {
         <Stack.Screen name="ui/alert" options={{ headerShown: false }} />
         <Stack.Screen name="ui/avatar" options={{ headerShown: false }} />
         <Stack.Screen name="ui/button" options={{ headerShown: false }} />
+        <Stack.Screen name="ui/heading" options={{ headerShown: false }} />
+        <Stack.Screen name="ui/text" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

@@ -68,7 +68,13 @@ function Button({
 
   return (
     <ButtonContext.Provider value={{ variant, size }}>
-      <Pressable className={cn(buttonVariants({ variant, size, className }))} {...props}>
+      <Pressable
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          props.disabled ? 'cursor-not-allowed' : 'active:opacity-80'
+        )}
+        {...props}
+      >
         <View className={cn(busy && 'opacity-0')}>
           {isTextOnlyButton ? (
             <ButtonText size={size} variant={variant}>
