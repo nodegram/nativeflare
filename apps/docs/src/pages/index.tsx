@@ -12,13 +12,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        <img src="/img/nativeflare-logo.png" alt="NativeFlare Logo" width="100" height="100" />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/introduction">
-            Docusaurus Tutorial - 5min ⏱️
+            Start now ⏱️
           </Link>
         </div>
       </div>
@@ -27,11 +27,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title="NativeFlare - React Native Components Collection"
+      description="NativeFlare is a collection of React Native components that are built with performance and accessibility in mind. Built on top of NativeWind and TailwindCSS."
     >
       <HomepageHeader />
       <main>

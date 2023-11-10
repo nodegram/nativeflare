@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'NativeFlare Docs',
   tagline: 'Documentation for NativeFlare',
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
 
   // Set the production url of your site here
   url: 'https://nativeflare.dev',
@@ -54,20 +54,20 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    respectPrefersColorScheme: true,
+    image: 'img/nativeflare-social.png',
     navbar: {
       title: 'NativeFlare',
       logo: {
         alt: 'NativeFlare Logo',
-        src: 'img/logo.svg',
+        src: 'img/nativeflare-logo.png',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'documentationSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Docs',
         },
         { to: '/docs/components/button', label: 'Components', position: 'left' },
         {
@@ -106,7 +106,7 @@ const config: Config = {
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/nativeflare',
+              href: 'https://discord.gg/QkFzBuyU',
             },
           ],
         },

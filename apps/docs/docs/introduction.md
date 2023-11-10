@@ -12,7 +12,7 @@ Are you tired of searching for the perfect component library for your React Nati
 
 🔥 **Inspired by [shadcn](https://ui.shadcn.com/), We Offer Something Unique**
 
-We draw inspiration from the groundbreaking work of [shadcn](https://ui.shadcn.com/), who introduced the concept of a flexible, non-dependency-based component collection. Their innovative approach has encouraged us to develop our own collection with a similar philosophy in mind.
+We draw inspiration from the groundbreaking work of [shadcn](https://ui.shadcn.com/), who introduced the concept of a flexible, non-dependency-based component collection. This innovative approach to component development is the foundation of our collection for React Native.
 
 🧩 **Pick What You Need, Customize as You Wish**
 
