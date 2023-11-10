@@ -1,0 +1,102 @@
+---
+title: Heading
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { ExpoFrame } from '@site/src/components/ExpoFrame';
+
+<Tabs>
+  <TabItem value="preview" label="Preview" default>
+    <ExpoFrame url="/ui/heading" height="300" width="100%" />
+  </TabItem>
+  <TabItem value="code" label="Code">
+
+    ```tsx
+    import { Heading } from "@/components/ui/heading";
+
+    export function HeadingDemo() {
+      return (
+        <Heading variant="h1" accent="default">
+          Heading Text
+        </Heading>
+      )
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Installation
+
+<Tabs>
+  <TabItem value="cli" label="CLI" default>
+
+    ```bash
+    npx nativeflare-ui add heading
+    ```
+
+  </TabItem>
+  <TabItem value="manual" label="Manual">
+    Copy the code below into `/components/ui/heading.tsx`
+
+    ```tsx
+    import type { TextProps } from 'react-native';
+    import { Text as NativeText } from 'react-native';
+    import { cva } from 'class-variance-authority';
+    import type { VariantProps } from 'class-variance-authority';
+    import { cn } from '../lib/utils';
+
+    const headingVariants = cva('font-bold', {
+      variants: {
+        variant: {
+          h1: 'text-4xl',
+          h2: 'text-3xl',
+          h3: 'text-2xl',
+          h4: 'text-xl',
+          h5: 'text-lg',
+          h6: 'text-md',
+        },
+        accent: {
+          default: 'text-foreground',
+          secondary: 'text-secondary',
+          destructive: 'text-destructive',
+        },
+      },
+      defaultVariants: {
+        variant: 'h1',
+        accent: 'default',
+      },
+    });
+
+    export interface HeadingProps extends TextProps, VariantProps<typeof headingVariants> {}
+
+    export function Heading({
+      className = '',
+      children,
+      variant,
+      accent,
+      ...props
+    }: HeadingProps): JSX.Element {
+      return (
+        <NativeText className={cn(headingVariants({ variant, accent, className }))} {...props}>
+          {children}
+        </NativeText>
+      );
+    }
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Heading } from '@/components/ui/heading';
+```
+
+```tsx
+<Heading variant="h1" accent="default">
+  Heading Text
+</Heading>
+```
