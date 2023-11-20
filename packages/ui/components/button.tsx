@@ -7,6 +7,7 @@ import {
   type ViewProps,
   type TextProps as NativeTextProps,
   type ActivityIndicatorProps,
+  type PressableProps,
 } from 'react-native';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
@@ -41,6 +42,9 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps extends ViewProps, VariantProps<typeof buttonVariants> {
+  onPress?: PressableProps['onPress'];
+  /** @deprecated fallback for copying web-first code - use `onPress` instead */
+  onClick?: PressableProps['onPress'];
   disabled?: boolean;
   title?: string;
   busy?: boolean;
@@ -53,6 +57,8 @@ const ButtonContext = createContext<VariantProps<typeof buttonVariants>>({
 
 function Button({
   className,
+  onClick,
+  onPress,
   variant,
   size,
   title,
@@ -73,6 +79,7 @@ function Button({
           buttonVariants({ variant, size, className }),
           props.disabled ? 'cursor-not-allowed' : 'active:opacity-80'
         )}
+        onPress={onPress || onClick}
         {...props}
       >
         <View className={cn(busy && 'opacity-0')}>
