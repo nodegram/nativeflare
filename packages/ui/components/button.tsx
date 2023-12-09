@@ -77,21 +77,25 @@ function Button({
       <Pressable
         className={cn(
           buttonVariants({ variant, size, className }),
-          props.disabled ? 'cursor-not-allowed' : 'active:opacity-80'
+          props.disabled && 'cursor-not-allowed'
         )}
         onPress={onPress || onClick}
         {...props}
       >
-        <View className={cn(busy && 'opacity-0')}>
-          {isTextOnlyButton ? (
-            <ButtonText size={size} variant={variant}>
-              {title || children}
-            </ButtonText>
-          ) : (
-            children
-          )}
-        </View>
-        {busy ? <ButtonLoader size="small" /> : null}
+        {({ pressed }) => (
+          <>
+            <View className={cn(busy && 'opacity-0', pressed && 'opacity-70')}>
+              {isTextOnlyButton ? (
+                <ButtonText size={size} variant={variant}>
+                  {title || children}
+                </ButtonText>
+              ) : (
+                children
+              )}
+            </View>
+            {busy ? <ButtonLoader size="small" /> : null}
+          </>
+        )}
       </Pressable>
     </ButtonContext.Provider>
   );
